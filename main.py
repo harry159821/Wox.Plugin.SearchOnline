@@ -3,7 +3,6 @@
 import urllib2
 import json,sys,re
 import webbrowser
-#from wox import WoxAPI
 true = True
 null = None
 false = False
@@ -35,8 +34,6 @@ def query(Allkey):
 			res = {}
 			res["Title"] = i
 			res["IcoPath"] = "./baidu.png"
-			#res["ActionName"] = "Change"
-			#res["ActionPara"] = i
 			results.append(res)
 		return json.dumps(results)
 	else:
@@ -100,9 +97,6 @@ def download(url,path):
 
 def openUrl(context,url):	
 	webbrowser.open(url)
-
-#def Change(context,text):
-#	WoxAPI.change_query(text)
 
 def openUrl2(context,url):
 	webbrowser.open(getRealUrl(url))
