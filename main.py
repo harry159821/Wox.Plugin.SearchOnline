@@ -40,7 +40,7 @@ def query(Allkey):
 		url = 'http://wap.baidu.com/s?word='+key
 		html = requests(url)
 		if not html:
-			return ''		
+			return ''
 		html = html.replace('<em>','')
 		html = html.replace('</em>','')	
 		html = html.replace('&#160;','')
