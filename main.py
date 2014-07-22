@@ -3,6 +3,7 @@
 import urllib2
 import json,sys,re
 import webbrowser
+#from wox import WoxAPI
 true = True
 null = None
 false = False
@@ -34,13 +35,15 @@ def query(Allkey):
 			res = {}
 			res["Title"] = i
 			res["IcoPath"] = "./baidu.png"
+			#res["ActionName"] = "Change"
+			#res["ActionPara"] = i
 			results.append(res)
 		return json.dumps(results)
 	else:
 		url = 'http://wap.baidu.com/s?word='+key
 		html = requests(url)
 		if not html:
-			return ''
+			return ''		
 		html = html.replace('<em>','')
 		html = html.replace('</em>','')	
 		html = html.replace('&#160;','')
@@ -95,8 +98,11 @@ def download(url,path):
 	FILE.close()
 	return True
 
-def openUrl(context,url):
+def openUrl(context,url):	
 	webbrowser.open(url)
+
+#def Change(context,text):
+#	WoxAPI.change_query(text)
 
 def openUrl2(context,url):
 	webbrowser.open(getRealUrl(url))
